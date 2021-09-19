@@ -4,6 +4,7 @@ module.exports = {
     title: "Gatsby Starter 2021",
   },
   plugins: [
+    `gatsby-transformer-sharp`,
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
@@ -14,22 +15,6 @@ module.exports = {
       options: {
         icon: "src/images/icon.png",
       },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: `${__dirname}/src/pages/`,
-      },
-      __key: "pages",
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
@@ -46,6 +31,22 @@ module.exports = {
           },
         ],
       }
-    }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
+      __key: "pages",
+    },
   ],
 };

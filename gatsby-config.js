@@ -1,3 +1,6 @@
+/**
+ * https://miyauchi.dev/ja/posts/gatsby-typescript/
+ */
 const { register } = require('esbuild-register/dist/node')
 
 register({

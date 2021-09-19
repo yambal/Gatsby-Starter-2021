@@ -4,6 +4,7 @@ module.exports = {
     title: "Gatsby Starter 2021",
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
@@ -48,5 +49,6 @@ module.exports = {
       },
       __key: "pages",
     },
+    `gatsby-plugin-typegen`,
   ],
 };

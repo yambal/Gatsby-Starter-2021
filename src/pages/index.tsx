@@ -8,6 +8,7 @@ const IndexPage:React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = (props) => {
   return (
     <>
       <h1>{siteTitle}</h1>
+      <h2>Hello</h2>
     </>
   )
 }

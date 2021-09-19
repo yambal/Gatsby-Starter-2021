@@ -5,7 +5,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const { createPage } = actions
 
   const result = await graphql<{ allMarkdownRemark: Pick<GatsbyTypes.Query["allMarkdownRemark"], 'edges'>} >(`
-    query {
+    {
       allMarkdownRemark {
         edges {
           node {

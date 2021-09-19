@@ -1,19 +1,17 @@
-  /**
- * TypeScript化
- * https://zenn.dev/ryo_kawamata/articles/gatsby-ts-2020
+/**
+ * https://miyauchi.dev/ja/posts/gatsby-typescript/
  */
 
- require("ts-node").register({
-  compilerOptions: {
-    module: "commonjs",
-    target: "esnext",
-  },
+const { register } = require('esbuild-register/dist/node')
+
+register({
+  target: 'node16'
 })
 
 require("./src/__generated__/gatsby-types")
 
-const { createPages } = require("./src/gatsby-node/createPages")
-const { onCreateNode } = require("./src/gatsby-node/onCreateNode")
+const { createPages } = require("./src/gatsby/createPages")
+const { onCreateNode } = require("./src/gatsby/onCreateNode")
 
 exports.createPages = createPages
 exports.onCreateNode = onCreateNode

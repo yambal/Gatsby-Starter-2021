@@ -3,19 +3,34 @@ import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
+
+  const TopImage = React.useMemo(() => {
+    const gImage = props.data.markdownRemark?.frontmatter?.topImage?.childImageSharp?.gatsbyImageData
+    if(gImage){
+      const image = getImage(gImage)
+      if(image){
+        return (
+          <GatsbyImage
+            image={image}
+            alt={'title'}
+          />
+        )
+      }
+    }
+    return null
+  },[])
   
   const html = String(props.data.markdownRemark?.html)
-  const topImage = props.data.markdownRemark?.frontmatter?.topImage?.childImageSharp?.gatsbyImageData
-  let image
-  if(topImage){
-    image = getImage(topImage)
-  }
+
 
   return (
     <>
-      {image && <GatsbyImage image={image} alt={'title'} />}
+      {TopImage}
+      
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      {/*
       <pre>{JSON.stringify(props, null, 2)}</pre>
+      */}
     </>
   )
 }
@@ -31,9 +46,10 @@ export const pageQuery = graphql`
         topImage {
           childImageSharp {
             gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              width: 1024
+              layout: FULL_WIDTH
+              placeholder: TRACED_SVG
+              formats: [AUTO, WEBP]
             )
           }
         }

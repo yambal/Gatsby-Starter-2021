@@ -1,20 +1,13 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-
 // markup
 const IndexPage:React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = (props) => {
+  const siteTitle = props.data.site?.siteMetadata?.title
 
   return (
     <>
-      <h1>Home Page</h1>
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <h1>{siteTitle}</h1>
     </>
   )
 }

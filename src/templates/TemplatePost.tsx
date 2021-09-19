@@ -18,7 +18,7 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
       }
     }
     return null
-  },[])
+  },[props.data.markdownRemark])
   
   const html = String(props.data.markdownRemark?.html)
 

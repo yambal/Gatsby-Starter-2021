@@ -25,9 +25,6 @@ const plugins: GatsbyConfig['plugins'] = [
         plugins: [
           {
             resolve: `gatsby-remark-relative-images`,
-            options: {
-              staticFolderName: 'static/images',
-            }
           },
           {
             resolve: `gatsby-remark-images`,

@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
 
   const TopImage = React.useMemo(() => {
-    const gImage = props.data.markdownRemark?.frontmatter?.topImage?.childImageSharp?.gatsbyImageData
+    const gImage = props.data.markdownRemark?.frontmatter?.feature_image?.childImageSharp?.gatsbyImageData
     if(gImage){
       const image = getImage(gImage)
       if(image){
@@ -43,7 +43,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        topImage {
+        feature_image {
           childImageSharp {
             gatsbyImageData(
               width: 1024

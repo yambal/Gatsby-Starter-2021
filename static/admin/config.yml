@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: yambal/Gatsby-Starter-2021
+  branch: cms/NetlifyCms
+  
+media_folder: src/images
+  
+collections:
+  - name: post
+    label: Posts
+    folder: src/pages/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Template Key", name: "template", widget: "hidden", default: "TemplatePost"}
+      - { label: '日付',name: date,  widget: datetime }
+      - { label: 'タイトル', name: title }
+      - { label: 'ヘッダー画像', name: 'top-image', widget: 'image'}
+      - { label: '本文', name: body, widget: markdown }

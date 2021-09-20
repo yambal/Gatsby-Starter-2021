@@ -16,5 +16,5 @@ collections:
       - { label: "Template Key", name: "template", widget: "hidden", default: "TemplatePost"}
       - { label: '日付',name: date,  widget: datetime }
       - { label: 'タイトル', name: title }
-      - { label: 'ヘッダー画像', name: 'top-image', widget: 'image'}
+      - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image'}
       - { label: '本文', name: body, widget: markdown }

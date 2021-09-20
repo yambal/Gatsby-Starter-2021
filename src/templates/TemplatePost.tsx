@@ -28,9 +28,6 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
       {TopImage}
       
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      {/*
-      <pre>{JSON.stringify(props, null, 2)}</pre>
-      */}
     </>
   )
 }

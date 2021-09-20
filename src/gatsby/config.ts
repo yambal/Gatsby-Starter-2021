@@ -2,7 +2,7 @@ import type { GatsbyConfig } from 'gatsby'
 import { resolve } from 'path'
 
 const plugins: GatsbyConfig['plugins'] = [
-  `gatsby-plugin-styled-components`,
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
@@ -37,6 +37,7 @@ const plugins: GatsbyConfig['plugins'] = [
         name: "images",
         path: resolve(__dirname, '../images'),
       },
+      /* @ts-ignore */
       __key: "images",
     },
     {
@@ -45,6 +46,7 @@ const plugins: GatsbyConfig['plugins'] = [
         name: "pages",
         path: resolve(__dirname, '../pages'),
       },
+      /* @ts-ignore */
       __key: "pages",
     },
     `gatsby-plugin-typegen`,

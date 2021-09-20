@@ -1,7 +1,7 @@
 ---
 title: "はじめての記事"
 date: "2020-08-18"
-feature_image: "../../images/first-article.jpg"
+feature_image: "../../../static/images/first-article.jpg"
 template: "TemplatePost"
 ---
 
@@ -11,4 +11,4 @@ Gatsby サイト上に表示するための初めての記事です。
 
 ブラウザ上に表示されるのかの確認です。
 
-![テスト画像](../../images/test.jpg)
+![テスト画像](../../../static/images/test.jpg)

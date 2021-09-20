@@ -3,7 +3,8 @@ backend:
   repo: yambal/Gatsby-Starter-2021
   branch: cms/NetlifyCms
   
-media_folder: src/images
+media_folder: static/images
+public_folder: /assets
   
 collections:
   - name: post

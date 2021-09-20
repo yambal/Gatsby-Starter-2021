@@ -775,9 +775,9 @@ type MarkdownRemark_tableOfContentsArgs = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
+  readonly template: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly feature_image: Maybe<File>;
-  readonly template: Maybe<Scalars['String']>;
 };
 
 
@@ -1242,9 +1242,9 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly template: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly feature_image: Maybe<FileFilterInput>;
-  readonly template: Maybe<StringQueryOperatorInput>;
 };
 
 type FileFilterInput = {
@@ -1546,6 +1546,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
+  | 'childrenMarkdownRemark.frontmatter.template'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.feature_image.sourceInstanceName'
   | 'childrenMarkdownRemark.frontmatter.feature_image.absolutePath'
@@ -1585,7 +1586,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.feature_image.childrenMarkdownRemark'
   | 'childrenMarkdownRemark.frontmatter.feature_image.id'
   | 'childrenMarkdownRemark.frontmatter.feature_image.children'
-  | 'childrenMarkdownRemark.frontmatter.template'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1641,6 +1641,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
+  | 'childMarkdownRemark.frontmatter.template'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.feature_image.sourceInstanceName'
   | 'childMarkdownRemark.frontmatter.feature_image.absolutePath'
@@ -1680,7 +1681,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.feature_image.childrenMarkdownRemark'
   | 'childMarkdownRemark.frontmatter.feature_image.id'
   | 'childMarkdownRemark.frontmatter.feature_image.children'
-  | 'childMarkdownRemark.frontmatter.template'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -3694,6 +3694,7 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
+  | 'frontmatter.template'
   | 'frontmatter.date'
   | 'frontmatter.feature_image.sourceInstanceName'
   | 'frontmatter.feature_image.absolutePath'
@@ -3773,7 +3774,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.feature_image.internal.mediaType'
   | 'frontmatter.feature_image.internal.owner'
   | 'frontmatter.feature_image.internal.type'
-  | 'frontmatter.template'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'

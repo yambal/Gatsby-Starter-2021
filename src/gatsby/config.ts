@@ -1,6 +1,8 @@
 import type { GatsbyConfig } from 'gatsby'
 import { resolve } from 'path'
 
+console.log(resolve(__dirname, '../images'))
+
 const plugins: GatsbyConfig['plugins'] = [
   `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -12,7 +14,7 @@ const plugins: GatsbyConfig['plugins'] = [
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: resolve(__dirname, '../../static/images/icon.png'),
       },
     },
     `gatsby-transformer-remark`,
@@ -35,7 +37,7 @@ const plugins: GatsbyConfig['plugins'] = [
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: resolve(__dirname, '../images'),
+        path: resolve(__dirname, '../../static/images'),
       },
       /* @ts-ignore */
       __key: "images",

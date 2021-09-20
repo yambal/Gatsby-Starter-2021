@@ -37,6 +37,7 @@ const plugins: GatsbyConfig['plugins'] = [
         name: "images",
         path: resolve(__dirname, '../images'),
       },
+      /* @ts-ignore */
       __key: "images",
     },
     {
@@ -45,6 +46,7 @@ const plugins: GatsbyConfig['plugins'] = [
         name: "pages",
         path: resolve(__dirname, '../pages'),
       },
+      /* @ts-ignore */
       __key: "pages",
     },
     `gatsby-plugin-typegen`,

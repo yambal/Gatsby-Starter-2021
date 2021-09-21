@@ -23,3 +23,23 @@ Gatsby でサイトを構築する方法としては、本サイトのほか、�
 - その他、Gatsby文脈上でのべストプラクティス
 
 本ドキュメントは GitHub 上の Template そのものでもあり、いつでもこれを再利用する事ができます
+
+## 解説
+### TypeScript化
+#### 基本的対処
+- Gatsby 3 では `gatsby-plugin-typescript` は必要ない
+- `gatsby-plugin-graphql-codegen` ではなく `gatsby-plugin-typegen` を使う
+- `gatsby-***.js` の TS化
+  - `gatby-config.js` だけは基本的にTS化できないが `esbuild-register` を介してTS化する
+  - `/src/gatsby` 配下にまとめる
+#### 詳細：GlaphQLレスポンスの型生成
+- `gatsby-plugin-typegen` を利用する
+- `yarn run deverop`時に（デフォルトで）`/src/__generated__` 配下に型定義を生成してくれるので、それを利用して型付けしていく。
+- `tsconfig.json` は[こちら](https://github.com/yambal/Gatsby-Starter-2021/blob/main/tsconfig.json)のようにする
+#### 参照
+- [Gatsby.js を完全TypeScript化する](https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb)
+  - 注）`gatsby-plugin-typescript` は不要になっています
+  - 注）`gatsby-plugin-graphql-codegen` は `gatsby-plugin-typegen` に移行
+- [Gatsby で config ファイルを TypeScript化する](https://miyauchi.dev/ja/posts/gatsby-typescript/)
+- [gatsby-plugin-typescript](https://www.gatsbyjs.com/plugins/gatsby-plugin-typescript/)
+- [WIP] [GatsbyをTypeScript化してESLintとPrettierを導入する](https://kohsuk.tech/2020/12/5/)

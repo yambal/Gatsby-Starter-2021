@@ -7,8 +7,9 @@ backend:
 media_folder: /static/images
 
 # メディアがアップロードされるディレクトリの相対Path
-# MD に記載されるpathは、これに画像ファイル名が連結される
-# MD に記載される画像Pathが相対パスでしか処理されない
+# であるべきだが、MDにはルートからのパスを記述し、onCreateNode で処理する
+# Netlify CMS では 画像への相対パス反映に対応していないが
+# Gatsby の gatsby-remark-images は 相対パスでしか処理できないため
 public_folder: /static/images
   
 collections:

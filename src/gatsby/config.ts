@@ -1,8 +1,6 @@
 import type { GatsbyConfig } from 'gatsby'
 import { resolve } from 'path'
 
-console.log(resolve(__dirname, '../images'))
-
 const plugins: GatsbyConfig['plugins'] = [
   `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

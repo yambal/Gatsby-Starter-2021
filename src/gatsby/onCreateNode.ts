@@ -34,7 +34,10 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, getNod
       const oldFrontmatterJson = JSON.stringify(oldFrontmatter)
       const newFrontmatterJson = oldFrontmatterJson.replace(frontMatterReg, `"${rootRelativePrefix}${staticDir}/`)
       const newFrontmatter = JSON.parse(newFrontmatterJson)
-      node.frontmatter = newFrontmatter
+      if(oldFrontmatterJson !== newFrontmatterJson){
+        node.frontmatter = newFrontmatter
+        reporter.info(`frontmatter overide: ${node.fileAbsolutePath} @onCreateNode`)
+      }
     }
 
     // content
@@ -42,13 +45,17 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, getNod
       const mdReg = new RegExp(`\\(${staticDir.replace('/', '\/')}\/`, 'g')
       const oldContent = node.internal.content
       const newContent = oldContent.replace(mdReg, `(${rootRelativePrefix}${staticDir}/`)
-      node.internal.content = newContent
+      if(oldContent !== newContent){
+        node.internal.content = newContent
+        reporter.info(`content overide: ${node.fileAbsolutePath} @onCreateNode`)
+      }
     }
 
 
     /**
      * Slug 生成
-     */    const slug = createFilePath({ node, getNode, basePath: `pages` })
+     */
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
       name: `slug`,

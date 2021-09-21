@@ -48,7 +48,8 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, getNod
 
     /**
      * Slug 生成
-     */    const slug = createFilePath({ node, getNode, basePath: `pages` })
+     */
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
       name: `slug`,

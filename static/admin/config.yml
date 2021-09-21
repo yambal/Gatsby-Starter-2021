@@ -9,7 +9,7 @@ media_folder: /static/images
 # メディアがアップロードされるディレクトリの相対Path
 # MD に記載されるpathは、これに画像ファイル名が連結される
 # MD に記載される画像Pathが相対パスでしか処理されない
-public_folder: /images
+public_folder: /static/images
   
 collections:
   - name: post

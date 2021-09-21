@@ -4,7 +4,7 @@ backend:
   branch: cms/NetlifyCms
 
 # メディアがアップロードされるディレクトリのPath
-media_folder: static/images
+media_folder: /static/images
 
 # メディアがアップロードされるディレクトリの相対Path
 # MD に記載されるpathは、これに画像ファイル名が連結される

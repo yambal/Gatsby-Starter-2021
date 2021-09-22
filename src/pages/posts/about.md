@@ -5,24 +5,17 @@ feature_image: "/static/images/first-article.jpg"
 template: "TemplatePost"
 ---
 
-## Gatsbyとは
-Gatsby は高速で安全なWebサイトを構築できるジェネレーター（SSG）です。
-つまり入力したデータで、公開用のHTMLやJavaScriptを生成してくれるというものですね。
-
-SSGは配信時のサーバ側での処理が無く、HTMLやJavaScriptといった基本的な静的ファイルが配信出来ればよいので、高速でありコストも低い。
-一般的にSSGは、ページ量が多かったり、更新頻度の高いサイトには向かないとされています。Gatsby も傾向としてはその通りですが、ビルドキャッシュなどの工夫で、比較的緩和されています。
-
 ## このドキュメントについて
 Gatsby でサイトを構築する方法としては、本サイトのほか、様々な入門情報を参考にすることができます。
 しかし、フロントエンジニアとして快適と思う環境・状態にするにはソコソコの知恵が必要であり、理想的な雛形はなかなかありません。
 
 - TypeScript
 - xstyled + Styled-Component と Theming
-- Storybook
+- [WIP] Storybook
 - [WIP] テスト
 - その他、Gatsby文脈上でのべストプラクティス
 
-本ドキュメントは GitHub 上の Template そのものでもあり、いつでもこれを再利用する事ができます
+本ドキュメントは [GitHub 上の Template](https://github.com/yambal/Gatsby-Starter-2021) そのものでもあり、いつでもこれを再利用する事ができます
 
 ## 解説
 ### TypeScript化
@@ -44,8 +37,25 @@ Gatsby でサイトを構築する方法としては、本サイトのほか、�
 - [gatsby-plugin-typescript](https://www.gatsbyjs.com/plugins/gatsby-plugin-typescript/)
 - [WIP] [GatsbyをTypeScript化してESLintとPrettierを導入する](https://kohsuk.tech/2020/12/5/)
 
+### Markdown対応
+Gatsby には Markdown に関するパワフルなプラグインがあり、主にそれを利用する。
+#### 使用プラグイン
+- ファイルシステム
+  - gatsby-source-filesystem
+- MarkDown
+  - gatsby-transformer-remark
+- 画像
+  - gatsby-transformer-sharp
+  - gatsby-plugin-sharp
+- Markdown + 画像
+  - gatsby-remark-images
+
+#### 特記事項
+本リポジトリでは、Markdown上の**画像パスを絶対パスで記述**するよう[カスタマイズ](https://github.com/yambal/Gatsby-Starter-2021/blob/main/src/gatsby/onCreateNode.ts)している。<br />
+`gatsby-remark-images`は、相対パスで指定しないと機能しないが、`onCreateNode`で絶対パスを相対パスに変換し、機能させている。これは Netlify CMS を使用したとき、それが相対パスに対応していない事に対応する事を考慮したものです。（定番の対処方法としては `gatsby-remark-relative-images` を使用する情報が多いが、振る舞いがよく分らないので自分で書きました）
+
 ### Theming
-`xstyled` + `Styled-Component` で コンポーネント指向の CSS in JS と 使い勝手の良いスタイリング手段とする
-また、本リポジトリはテンプレートであるので、スタイリッシュで完成度の高いUIを提供するものではない。
+本リポジトリはテンプレートであるので、スタイリッシュで完成度の高いUIを目指してはいない。<br />
+`xstyled` + `Styled-Component` で コンポーネント指向の CSS in JS と 使い勝手の良いスタイリング手段とする。<br />
 利用者に存分にカスタマイズしてもらうとして、雛形として利用しやすいものを [xBootStyle](https://github.com/yambal/xBootStyle) として切り出し、submodule化した。
 解説や利用方法などはそちらのリポジトリに記載するものとする。

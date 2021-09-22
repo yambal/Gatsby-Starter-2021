@@ -52,8 +52,8 @@ const plugins: GatsbyConfig['plugins'] = [
 ]
 
 const siteMetadata: GatsbyConfig['siteMetadata'] = {
-  siteUrl: 'https://miyauchi.dev/',
-  title: "Title"
+  siteUrl: 'https://silly-bohr-becbfa.netlify.app/',
+  title: "Gatsby Starter 2021"
 }
 
 const config: GatsbyConfig = {

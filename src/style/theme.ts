@@ -1,5 +1,3 @@
-
-
 import { xBootTheme } from '../components/xBootStyle/styles/xBootTheme'
 
 export const theme = {

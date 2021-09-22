@@ -1,3 +1,3 @@
 export * from "./src/gatsby/wrapPageElement"
 
-console.info(`gatsby-browser`)
+console.info(`use gatsby-browser`)

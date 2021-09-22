@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Container } from "../components/xBootStyle/Container"
 
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
 
@@ -24,14 +25,14 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
 
 
   return (
-    <>
+    <Container>
       {TopImage}
       
       <div dangerouslySetInnerHTML={{ __html: html }} />
       {/*
       <pre>{JSON.stringify(props, null, 2)}</pre>
       */}
-    </>
+    </Container>
   )
 }
 

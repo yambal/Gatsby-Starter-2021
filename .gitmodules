@@ -1,0 +1,3 @@
+[submodule "src/components/xBootStyle"]
+	path = src/components/xBootStyle
+	url = https://github.com/yambal/xBootStyle.git

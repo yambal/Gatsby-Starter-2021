@@ -1,10 +1,10 @@
 
 import { defaultTheme } from '@xstyled/styled-components'
-// import { xBootTheme } from '../components/xBootStyle/xBootTheme'
+import { xBootTheme } from '../components/xBootStyle/styles/xBootTheme'
 
 export const theme = {
     ...defaultTheme,
-    /* ...xBootTheme */
+    ...xBootTheme
 }
 
 export type AppTheme = typeof theme

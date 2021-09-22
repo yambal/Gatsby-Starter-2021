@@ -59,3 +59,6 @@ Gatsby には Markdown に関するパワフルなプラグインがあり、主
 `xstyled` + `Styled-Component` で コンポーネント指向の CSS in JS と 使い勝手の良いスタイリング手段とする。<br />
 利用者に存分にカスタマイズしてもらうとして、雛形として利用しやすいものを [xBootStyle](https://github.com/yambal/xBootStyle) として切り出し、submodule化した。
 解説や利用方法などはそちらのリポジトリに記載するものとする。
+
+`styled-components` の `ThemeProvider` は、`gatsby-browser.ts`もしくは`gatsby-ssr.ts`に配置すべきである。<br />
+が、それでは `xstyled` を使用したコンポーネントにテーマが反映されない現象が発生する。原因を突き止めるには至らなかったが、`ThemeProvider` をそれらから外し、node となる tsx に記載する事にする。

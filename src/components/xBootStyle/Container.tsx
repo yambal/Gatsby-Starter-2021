@@ -21,7 +21,7 @@ export const Container: React.FC<ContainerProps> = React.forwardRef(function Pre
   ref
 ) {
 
-  const maxWidth = React.useMemo(() => {
+  const maxWidth = () => {
 
     const mx = {
       _: "100%",
@@ -30,6 +30,10 @@ export const Container: React.FC<ContainerProps> = React.forwardRef(function Pre
       lg: 'calc(1024px * 0.95)',
       xl: 'calc(1280px * 0.95)',
       "2xl": 'calc(1536px * 0.95)'
+    }
+
+    if(!breakPoint) {
+      return mx
     }
 
     switch (breakPoint) {
@@ -48,14 +52,14 @@ export const Container: React.FC<ContainerProps> = React.forwardRef(function Pre
     }
 
     return mx
-  },[breakPoint])
+  }
 
   return (
     <x.div
       w="100%"
       px="0.75rem"
       mx="auto"
-      maxWidth={maxWidth}
+      maxWidth={maxWidth()}
       {...restProps}
       ref={ref}
     >

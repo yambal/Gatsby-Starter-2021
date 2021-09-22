@@ -6,8 +6,6 @@ export const theme = {
     ...xBootTheme
 }
 
-console.log(theme)
-
 export type AppTheme = typeof theme
 
 declare module '@xstyled/system' {

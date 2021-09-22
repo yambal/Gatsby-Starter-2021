@@ -9,6 +9,8 @@ import { theme } from '../style/theme'
 export const StyleProvider: React.FC = ({
   children
 }) => {
+  console.log(theme)
+  
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

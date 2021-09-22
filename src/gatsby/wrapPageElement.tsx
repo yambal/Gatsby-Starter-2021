@@ -1,10 +1,13 @@
-
 import React from "react"
 import { GatsbyBrowser } from "gatsby"
-import { StyleProvider } from "../providers/StyleProvider"
+
+/**
+ * Provider などをここに記載する
+ * @param props 
+ * @returns 
+ */
 
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = (props) => {
-  console.info(`wrapPageElement`)
   const { element, props: pageProps, getResourceURLsForPathname } = props
   return (
     <>

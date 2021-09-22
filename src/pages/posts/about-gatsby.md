@@ -17,7 +17,7 @@ Gatsby でサイトを構築する方法としては、本サイトのほか、�
 しかし、フロントエンジニアとして快適と思う環境・状態にするにはソコソコの知恵が必要であり、理想的な雛形はなかなかありません。
 
 - TypeScript
-- xStyled + Styled-Component と Theming
+- xstyled + Styled-Component と Theming
 - Storybook
 - [WIP] テスト
 - その他、Gatsby文脈上でのべストプラクティス
@@ -43,3 +43,9 @@ Gatsby でサイトを構築する方法としては、本サイトのほか、�
 - [Gatsby で config ファイルを TypeScript化する](https://miyauchi.dev/ja/posts/gatsby-typescript/)
 - [gatsby-plugin-typescript](https://www.gatsbyjs.com/plugins/gatsby-plugin-typescript/)
 - [WIP] [GatsbyをTypeScript化してESLintとPrettierを導入する](https://kohsuk.tech/2020/12/5/)
+
+### Theming
+`xstyled` + `Styled-Component` で コンポーネント指向の CSS in JS と 使い勝手の良いスタイリング手段とする
+また、本リポジトリはテンプレートであるので、スタイリッシュで完成度の高いUIを提供するものではない。
+利用者に存分にカスタマイズしてもらうとして、雛形として利用しやすいものを [xBootStyle](https://github.com/yambal/xBootStyle) として切り出し、submodule化した。
+解説や利用方法などはそちらのリポジトリに記載するものとする。

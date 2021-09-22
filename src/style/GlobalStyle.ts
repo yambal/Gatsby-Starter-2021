@@ -1,7 +1,9 @@
+   
+import { normalize } from "polished"
 import { createGlobalStyle } from "styled-components"
-import { normalize } from 'polished'
-// import { xBootGlobalStyle } from "../components/xBootStyle/xBootGlobalStyle"
+import { xBootGlobalStyle } from "../components/xBootStyle/styles/xBootGlobalStyle"
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
+  ${xBootGlobalStyle}
 `

@@ -4,7 +4,6 @@ import { resolve } from 'path'
 const plugins: GatsbyConfig['plugins'] = [
   `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
-    "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",

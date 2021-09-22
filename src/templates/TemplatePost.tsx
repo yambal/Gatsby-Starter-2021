@@ -2,6 +2,8 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container } from "../components/xBootStyle/Container"
+import { ThemeProvider } from "styled-components"
+import { theme } from "../style/theme"
 
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
 
@@ -25,14 +27,16 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
 
 
   return (
-    <Container>
-      {TopImage}
-      
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      {/*
-      <pre>{JSON.stringify(props, null, 2)}</pre>
-      */}
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        {TopImage}
+        
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+        {/*
+        <pre>{JSON.stringify(props, null, 2)}</pre>
+        */}
+      </Container>
+    </ThemeProvider>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container } from "../components/xBootStyle/Container"
-import { StyleProvider } from "../providers/StyleProvider"
+import { ThemeAndGlobalStyleProbider } from "../providers/ThemeAndGlobalStyleProbider"
 
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
 
@@ -26,7 +26,7 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
 
 
   return (
-    <StyleProvider>
+    <ThemeAndGlobalStyleProbider>
       <Container>
         {TopImage}
         
@@ -35,7 +35,7 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
         <pre>{JSON.stringify(props, null, 2)}</pre>
         */}
       </Container>
-    </StyleProvider>
+    </ThemeAndGlobalStyleProbider>
   )
 }
 

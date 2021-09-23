@@ -6,7 +6,7 @@ import {
 } from '@xstyled/styled-components'
 import { theme } from '../style/theme'
 
-export const StyleProvider: React.FC = ({
+export const ThemeAndGlobalStyleProbider: React.FC = ({
   children
 }) => {
   return (

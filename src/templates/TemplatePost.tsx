@@ -2,9 +2,11 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container } from "../components/xBootStyle/Container"
-import { ThemeAndGlobalStyleProbider } from "../providers/ThemeAndGlobalStyleProbider"
+import { PageContainer } from "../components/PageContainer"
 
 const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
+
+  console.log(props)
 
   const TopImage = React.useMemo(() => {
     const gImage = props.data.markdownRemark?.frontmatter?.feature_image?.childImageSharp?.gatsbyImageData
@@ -26,16 +28,14 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
 
 
   return (
-    <ThemeAndGlobalStyleProbider>
+    <PageContainer
+      pageTitle={props.data.markdownRemark?.frontmatter?.title}
+    >
       <Container>
         {TopImage}
-        
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        {/*
-        <pre>{JSON.stringify(props, null, 2)}</pre>
-        */}
       </Container>
-    </ThemeAndGlobalStyleProbider>
+    </PageContainer>
   )
 }
 

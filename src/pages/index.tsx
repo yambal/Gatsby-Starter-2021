@@ -4,37 +4,22 @@ import { Container } from "../components/xBootStyle/Container"
 import { ThemeAndGlobalStyleProbider } from "../providers/ThemeAndGlobalStyleProbider"
 import { Navbar } from "../components/xBootStyle/Nav/Navbar"
 import { Button } from "../components/xBootStyle/buttons/Button"
+import { PageContainer } from "../components/PageContainer"
 
 // markup
-const IndexPage:React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = (props) => {
-  const siteTitle = props.data.site?.siteMetadata?.title
-
+const IndexPage:React.FC<PageProps> = (props) => {
+  console.log(props)
   return (
-    <ThemeAndGlobalStyleProbider>
-      <Navbar
-        brand={<Link to="/" className="brand">{siteTitle}</Link>}
-        bg="primary"
-        color="white"
-      >
-        {siteTitle}
-      </Navbar>
-      <Container>
-        <h2>Hello</h2>
-        <Button valiant="primary">Button</Button>
-        <Button valiant="primary" disabled>Button</Button>
-      </Container>
-    </ThemeAndGlobalStyleProbider>
+    <PageContainer>
+      <>
+        <Container>
+          <h2>Hello</h2>
+          <Button valiant="primary">Button</Button>
+          <Button valiant="primary" disabled>Button</Button>
+        </Container>
+      </>
+    </PageContainer>
   )
 }
 
 export default IndexPage
-
-export const pageQuery = graphql`
-query IndexPage {
-  site {
-    siteMetadata {
-      title
-    }
-  }
-}
-`

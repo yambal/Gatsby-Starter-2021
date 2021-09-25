@@ -1,8 +1,8 @@
 ---
-template: TemplatePost
-date: 2020-08-18
-title: Gatsby Starter 2021 について
-feature_image: /static/images/first-article.jpg
+title: "このドキュメントについて"
+date: "2020-08-18"
+feature_image: "/static/images/first-article.jpg"
+template: "TemplatePost"
 ---
 
 ## このドキュメントについて

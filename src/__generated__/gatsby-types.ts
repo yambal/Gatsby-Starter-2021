@@ -261,8 +261,6 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -919,8 +917,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -2181,8 +2177,6 @@ type SiteFieldsEnum =
   | 'siteMetadata.title'
   | 'siteMetadata.description'
   | 'siteMetadata.siteUrl'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2316,8 +2310,6 @@ type SiteGroupConnection_groupArgs = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -3920,18 +3912,10 @@ type MarkdownRemarkSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type TemplatePageQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
+type useGlovalMenuPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TemplatePageQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { readonly frontmatter: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title'>
-      & { readonly feature_image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-    )> }
-  )> };
+type useGlovalMenuPageQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'global_navi' | 'title'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
 
 type TemplateIndexQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3942,6 +3926,11 @@ type TemplateIndexQuery = { readonly markdownRemark: Maybe<Pick<MarkdownRemark, 
           Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>
           & { readonly feature_image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
         )>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
+
+type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>> }> };
 
 type TemplatePostQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3956,20 +3945,18 @@ type TemplatePostQuery = { readonly markdownRemark: Maybe<(
     )> }
   )> };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type TemplatePageQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
 
 
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type useGlovalMenuPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type useGlovalMenuPageQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'global_navi' | 'title'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
-
-type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>> }> };
+type TemplatePageQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly frontmatter: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title'>
+      & { readonly feature_image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+    )> }
+  )> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

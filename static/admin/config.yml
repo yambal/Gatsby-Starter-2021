@@ -13,12 +13,13 @@ media_folder: /static/images
 public_folder: /static/images
   
 collections:
-  - name: Index
+  - name: index
     label: トップページ
     folder: src/pages/
     create: false
     slug: "index"
     fields:
+      - { label: 'トップページ', name: title, widget: "hidden"}
       - { label: "Template Key", name: "template", widget: "hidden", default: "TemplateIndex"}
       - { label: '本文', name: body, widget: markdown }
   - name: page
@@ -29,7 +30,7 @@ collections:
     fields:
       - { label: "Template Key", name: "template", widget: "hidden", default: "TemplatePage"}
       - { label: 'タイトル', name: title }
-      - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image'}
+      - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image', required: false}
       - label: 'グローバルメニュー'
         name: 'global_navi'
         widget: 'select'
@@ -50,5 +51,5 @@ collections:
       - { label: "Template Key", name: "template", widget: "hidden", default: "TemplatePost"}
       - { label: '日付',name: date,  widget: datetime }
       - { label: 'タイトル', name: title }
-      - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image'}
+      - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image', required: false}
       - { label: '本文', name: body, widget: markdown }

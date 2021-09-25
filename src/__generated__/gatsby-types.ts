@@ -773,9 +773,9 @@ type MarkdownRemark_tableOfContentsArgs = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
-  readonly template: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly feature_image: Maybe<File>;
+  readonly template: Maybe<Scalars['String']>;
   readonly global_navi: Maybe<Scalars['Int']>;
 };
 
@@ -1241,9 +1241,9 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly template: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly feature_image: Maybe<FileFilterInput>;
+  readonly template: Maybe<StringQueryOperatorInput>;
   readonly global_navi: Maybe<IntQueryOperatorInput>;
 };
 
@@ -1546,7 +1546,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
-  | 'childrenMarkdownRemark.frontmatter.template'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.feature_image.sourceInstanceName'
   | 'childrenMarkdownRemark.frontmatter.feature_image.absolutePath'
@@ -1586,6 +1585,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.feature_image.childrenMarkdownRemark'
   | 'childrenMarkdownRemark.frontmatter.feature_image.id'
   | 'childrenMarkdownRemark.frontmatter.feature_image.children'
+  | 'childrenMarkdownRemark.frontmatter.template'
   | 'childrenMarkdownRemark.frontmatter.global_navi'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
@@ -1642,7 +1642,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
-  | 'childMarkdownRemark.frontmatter.template'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.feature_image.sourceInstanceName'
   | 'childMarkdownRemark.frontmatter.feature_image.absolutePath'
@@ -1682,6 +1681,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.feature_image.childrenMarkdownRemark'
   | 'childMarkdownRemark.frontmatter.feature_image.id'
   | 'childMarkdownRemark.frontmatter.feature_image.children'
+  | 'childMarkdownRemark.frontmatter.template'
   | 'childMarkdownRemark.frontmatter.global_navi'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
@@ -3691,7 +3691,6 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
-  | 'frontmatter.template'
   | 'frontmatter.date'
   | 'frontmatter.feature_image.sourceInstanceName'
   | 'frontmatter.feature_image.absolutePath'
@@ -3771,6 +3770,7 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.feature_image.internal.mediaType'
   | 'frontmatter.feature_image.internal.owner'
   | 'frontmatter.feature_image.internal.type'
+  | 'frontmatter.template'
   | 'frontmatter.global_navi'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -3938,7 +3938,10 @@ type TemplateIndexQueryVariables = Exact<{
 }>;
 
 
-type TemplateIndexQuery = { readonly markdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> };
+type TemplateIndexQuery = { readonly markdownRemark: Maybe<Pick<MarkdownRemark, 'html'>>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>
+          & { readonly feature_image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
 
 type TemplatePostQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3967,6 +3970,14 @@ type useGlovalMenuPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type useGlovalMenuPageQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'global_navi' | 'title'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
+
+type usePostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type usePostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>
+          & { readonly feature_image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> } }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

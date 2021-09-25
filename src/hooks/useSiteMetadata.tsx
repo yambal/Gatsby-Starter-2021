@@ -12,7 +12,5 @@ export const useSiteMetadata = () => {
       }
     }
   `)
-
-  console.log(site?.siteMetadata)
   return site?.siteMetadata
 }

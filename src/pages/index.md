@@ -1,4 +1,4 @@
 ---
-template: "TemplateIndex"
+template: TemplateIndex
 ---
-インデックス
+トップページ

@@ -33,13 +33,16 @@ collections:
       - { label: "Template Key", name: "template", widget: "hidden", default: "TemplatePage"}
       - { label: 'タイトル', name: title }
       - { label: 'ヘッダー画像', name: 'feature_image', widget: 'image'}
-      - { label: 'グローバルメニュー', name: 'global_navi', widget: 'select', options:
-        - { label: "表示しない", value: -1 }
-        - { label: "位置 1", value: 1 }
-        - { label: "位置 2", value: 2 }
-        - { label: "位置 3", value: 3 }
-        - { label: "位置 4", value: 4 }
-        - { label: "位置 5", value: 5 }
+      - label: 'グローバルメニュー'
+        name: 'global_navi'
+        widget: 'select'
+        options:
+          - { label: "表示しない", value: -1 }
+          - { label: "位置 1", value: 1 }
+          - { label: "位置 2", value: 2 }
+          - { label: "位置 3", value: 3 }
+          - { label: "位置 4", value: 4 }
+          - { label: "位置 5", value: 5 }
       - { label: '本文', name: body, widget: markdown }
   - name: post
     label: Posts

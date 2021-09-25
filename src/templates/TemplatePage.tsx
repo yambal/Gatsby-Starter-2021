@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container } from "../components/xBootStyle/Container"
 import { PageContainer } from "../components/PageContainer"
 
-const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props) => {
+const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePageQuery>> = (props) => {
   const TopImage = React.useMemo(() => {
     const gImage = props.data.markdownRemark?.frontmatter?.feature_image?.childImageSharp?.gatsbyImageData
     if(gImage){
@@ -40,7 +40,7 @@ const TemplatePost: React.FC<PageProps<GatsbyTypes.TemplatePostQuery>> = (props)
 export default TemplatePost
 
 export const pageQuery = graphql`
-  query TemplatePost($slug: String!) {
+  query TemplatePage($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

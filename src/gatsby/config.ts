@@ -9,6 +9,7 @@ const plugins: GatsbyConfig['plugins'] = [
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-feed",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -53,7 +54,8 @@ const plugins: GatsbyConfig['plugins'] = [
 
 const siteMetadata: GatsbyConfig['siteMetadata'] = {
   siteUrl: 'https://silly-bohr-becbfa.netlify.app/',
-  title: "Gatsby Starter 2021"
+  title: "Gatsby Starter 2021",
+  description: "description"
 }
 
 const config: GatsbyConfig = {

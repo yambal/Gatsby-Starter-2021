@@ -42,12 +42,12 @@ const plugins: GatsbyConfig['plugins'] = [
             query: `
               {
                 allMarkdownRemark(
+                  filter: {frontmatter: {template: {eq: "TemplatePost"}}},
                   sort: { order: DESC, fields: [frontmatter___date] },
                 ) {
                   edges {
                     node {
                       excerpt
-                      html
                       fields { slug }
                       frontmatter {
                         title
@@ -59,7 +59,7 @@ const plugins: GatsbyConfig['plugins'] = [
               }
             `,
             output: "/rss.xml",
-            title: "Your Site's RSS Feed",
+            title: "posts",
           },
         ],
       },

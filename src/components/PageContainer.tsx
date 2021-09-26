@@ -7,6 +7,7 @@ import { Navbar } from "./xBootStyle/Nav/Navbar"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Helmet } from "react-helmet"
 import { useGrovalMenuPage } from "../hooks/useGrovalMenuPage"
+import { IconFeed } from "./icons/IconFeed"
 
 type PageContainerProps = {
   brand?: React.ReactNode
@@ -49,6 +50,7 @@ const _PageContainer: React.FC<PageContainerProps> = ({
       <>
         <Helmet>
           <title>{mataTitle}</title>
+          <link rel="alternate" type="application/atom+xml" href="/rss.xml" title="Atom" />
         </Helmet>
         <Navbar
           brand={<Link to="/" className="brand">{brandNode}</Link>}
@@ -56,7 +58,7 @@ const _PageContainer: React.FC<PageContainerProps> = ({
           bg="primary"
           color="white"
         >
-          Work in progress
+          <Link to="/rss.xml"><IconFeed mr="0.25rem"/>Feed</Link>
         </Navbar>
         {children}
       </>

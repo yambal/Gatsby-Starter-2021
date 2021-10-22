@@ -7,7 +7,7 @@ const plugins: GatsbyConfig['plugins'] = [
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
-        modulePath: resolve(__dirname, '../cms/netlify.js'),
+        modulePath: resolve(__dirname, '../cms/netlify.tsx'),
       },
     },
     "gatsby-plugin-styled-components",

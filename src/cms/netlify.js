@@ -1,6 +1,10 @@
 import CMS from 'netlify-cms-app'
 import React from 'react'
 
+/**
+ * https://www.stephenlewis.me/notes/custom-netlify-cms-preview-gatsby/
+ * @returns 
+ */
 const ArticlePreview = () => (
   <article>
     <h1>Custom article preview</h1>

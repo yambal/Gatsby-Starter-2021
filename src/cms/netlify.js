@@ -8,6 +8,7 @@ import CMS from 'netlify-cms-app'
 const ArticlePreview = ({ entry, widgetFor }) => (
     <x.article backgroundColor="#FF0000">
       <h1>{entry.getIn(['data', 'title'])}</h1>
+      <pre>{JSON.stringify(widgetFor('body'), null, 2)}</pre>
       <section dangerouslySetInnerHTML={{ __html: widgetFor('body') }} />
       <pre>{JSON.stringify(entry, null, 2)}</pre>
     </x.article>

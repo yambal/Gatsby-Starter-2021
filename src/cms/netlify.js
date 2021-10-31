@@ -1,3 +1,4 @@
+import { x } from '@xstyled/styled-components'
 import CMS from 'netlify-cms-app'
 import React from 'react'
 
@@ -6,10 +7,10 @@ import React from 'react'
  * @returns 
  */
 const ArticlePreview = () => (
-  <article>
+  <x.article backgroundColor="red">
     <h1>Custom article preview</h1>
     <p>This is my new article.</p>
-  </article>
+  </x.article>
 )
 
 CMS.registerPreviewTemplate('index', ArticlePreview)
